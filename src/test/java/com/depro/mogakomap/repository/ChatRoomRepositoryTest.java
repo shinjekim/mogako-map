@@ -1,6 +1,6 @@
 package com.depro.mogakomap.repository;
 
-import com.depro.mogakomap.entity.Chat;
+import com.depro.mogakomap.entity.ChatRoom;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,32 +15,32 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ChatRepositoryTest {
+public class ChatRoomRepositoryTest {
 
     @Autowired
-    ChatRepository chatRepository;
+    ChatRoomRepository chatRoomRepository;
 
-    // @After
+    @After
     public void cleanup(){
         /**
          * 이후 테스트 코드에 영향을 주지 않기 위해
          * 테스트 메소드가 끝날때 마다 repository 전체를 비우는 코드
          */
-        chatRepository.deleteAll();
+        chatRoomRepository.deleteAll();
     }
 
     @Test
-    public void sendAndGetChatMessage(){
+    public void createChatRoom(){
         // given: 테스트 기반 환경을 구축하는 단계
-        chatRepository.save(Chat.builder()
-                .chatMessage("채팅 메시지")
-                .build());
+        chatRoomRepository.save(ChatRoom.builder()
+                            .chatRoomTitle("채팅방 생성")
+                            .build());
 
         // when: 테스트하고자 하는 행위 선언
-        List<Chat> chatList = chatRepository.findAll();
+        List<ChatRoom> chatRoomList = chatRoomRepository.findAll();
 
         // then: 테스트 결과 검증
-        Chat chat = chatList.get(0);
-        assertThat(chat.getChatMessage(), is("채팅 메시지"));
+        ChatRoom chatRoom = chatRoomList.get(0);
+        assertThat(chatRoom.getChatRoomTitle(), is("채팅방 생성"));
     }
 }

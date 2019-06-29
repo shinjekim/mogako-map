@@ -22,10 +22,15 @@ public class Chat {
     @Temporal(TemporalType.TIMESTAMP)
     private Date chatTimestamp;
 
+    @ManyToOne
+    @JoinColumn(name = "CHAT_ROOM_ID")
+    private ChatRoom chatRoom;
+
     @Builder
-    public Chat(Long chatId, String chatMessage, Date chatTimestamp) {
+    public Chat(Long chatId, String chatMessage, Date chatTimestamp, ChatRoom chatRoom) {
         this.chatId = chatId;
         this.chatMessage = chatMessage;
         this.chatTimestamp = chatTimestamp;
+        this.chatRoom = chatRoom;
     }
 }
