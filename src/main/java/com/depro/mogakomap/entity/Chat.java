@@ -1,0 +1,31 @@
+package com.depro.mogakomap.entity;
+
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@Entity
+public class Chat {
+
+    @Id
+    @GeneratedValue
+    private Long chatId;
+
+    @Column(nullable = false)
+    private String chatMessage;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date chatTimestamp;
+
+    @Builder
+    public Chat(Long chatId, String chatMessage, Date chatTimestamp) {
+        this.chatId = chatId;
+        this.chatMessage = chatMessage;
+        this.chatTimestamp = chatTimestamp;
+    }
+}
