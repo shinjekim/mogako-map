@@ -1,8 +1,25 @@
 spring:
+  profiles:
+    active: local # 기본 환경 선택
+
+# local 환경
+---
+spring:
+  profiles: local
+  datasource:
+    data: classpath:data-h2.sql # 시작할때 실행시킬 script
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   h2:
     console:
       enabled: true
 
-#logging:
-#  level:
-#    ROOT: DEBUG
+#local db
+#spring:
+#  datasource:
+#    url: jdbc:mariadb://localhost:3306/MOGAKOMAP
+#    username: root
+#    password:
+#    driver-class-name: org.mariadb.jdbc.Driver
