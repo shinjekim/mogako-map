@@ -26,11 +26,6 @@ public class ChatController {
         return "프로젝트 메인화면!!!";
     }
 
-//    @PostMapping("/chat")
-//    public void saveChatMessages(@RequestBody ChatDto dto){
-//        chatRepository.save(dto.toEntity());
-//    }
-
     @MessageMapping("/chatmessage")
     public void setAndGetChatMessage(@PathVariable Long chatRoomId, Chat chatMessage){
 //        ChatDto chatDto = new ChatDto();

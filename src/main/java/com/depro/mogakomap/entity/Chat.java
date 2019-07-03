@@ -35,13 +35,4 @@ public class Chat {
         this.chatTimestamp = chatTimestamp;
         this.chatRoom = chatRoom;
     }
-
-//    public ChatDto toDto(){
-//        return ChatDto.builder()
-//                .chatId(chatId)
-//                .chatMessage(chatMessage)
-//                .chatTimestamp(chatTimestamp)
-//                .chatRoom(chatRoom)
-//                .build();
-//    }
 }

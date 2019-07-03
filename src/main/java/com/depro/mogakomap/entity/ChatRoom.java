@@ -30,12 +30,5 @@ public class ChatRoom {
         this.chatRoomTitle = chatRoomTitle;
         this.mapMarkerLocation = mapMarkerLocation;
     }
-
-//    public ChatRoomDto toDto(){
-//        return ChatRoomDto.builder()
-//                .chatRoomId(chatRoomId)
-//                .chatRoomTitle(chatRoomTitle)
-//                .build();
-//    }
 }
 
