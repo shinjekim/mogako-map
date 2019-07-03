@@ -13,9 +13,13 @@ public class ChatRoomController {
     private ChatRoomRepository chatRoomRepository;
 
     @PostMapping("/chatroom/create")
-    public void createChatRoom(@RequestBody ChatRoomDto dto){
-//        String chatRoomTitle = "소켓테스트용";
-//        ChatRoomDto newChatRoom = chatRoomService.save(chatRoomTitle);
+    public ChatRoomDto createChatRoom(@RequestBody ChatRoomDto dto){
+        ChatRoomDto newChatRoom = new ChatRoomDto();
         chatRoomRepository.save(dto.toEntity());
+        //TODO: Dto에 엔터티를 set하는 바람직한 방법으로 바꿀것.
+        newChatRoom.setChatRoomId(chatRoomRepository.findByMapMarkerLocation(dto.getMapMarkerLocation()).getChatRoomId());
+        newChatRoom.setChatRoomTitle(chatRoomRepository.findByMapMarkerLocation(dto.getMapMarkerLocation()).getChatRoomTitle());
+        newChatRoom.setMapMarkerLocation(chatRoomRepository.findByMapMarkerLocation(dto.getMapMarkerLocation()).getMapMarkerLocation());
+        return newChatRoom;
     }
 }
