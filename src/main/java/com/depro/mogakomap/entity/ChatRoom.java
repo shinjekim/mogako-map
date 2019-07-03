@@ -1,14 +1,12 @@
 package com.depro.mogakomap.entity;
 
+import com.depro.mogakomap.dto.ChatRoomDto;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -16,15 +14,28 @@ import javax.persistence.Table;
 @Table(name = "CHATROOM")
 public class ChatRoom {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CHATROOM_ID")
     private Long chatRoomId;
 
+    @Column(name = "CHATROOM_TITLE", nullable = false)
     private String chatRoomTitle;
 
+    @Column(name = "MAP_MARKER_LOCATION", nullable = false)
+    private String mapMarkerLocation;
+
     @Builder
-    public ChatRoom(Long chatRoomId, String chatRoomTitle){
+    public ChatRoom(Long chatRoomId, String chatRoomTitle, String mapMarkerLocation){
         this.chatRoomId = chatRoomId;
         this.chatRoomTitle = chatRoomTitle;
+        this.mapMarkerLocation = mapMarkerLocation;
     }
+
+//    public ChatRoomDto toDto(){
+//        return ChatRoomDto.builder()
+//                .chatRoomId(chatRoomId)
+//                .chatRoomTitle(chatRoomTitle)
+//                .build();
+//    }
 }
 

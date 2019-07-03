@@ -34,6 +34,7 @@ public class ChatRoomRepositoryTest {
         // given: 테스트 기반 환경을 구축하는 단계
         chatRoomRepository.save(ChatRoom.builder()
                             .chatRoomTitle("채팅방 생성")
+                            .mapMarkerLocation("locationTEst")
                             .build());
 
         // when: 테스트하고자 하는 행위 선언
@@ -42,5 +43,6 @@ public class ChatRoomRepositoryTest {
         // then: 테스트 결과 검증
         ChatRoom chatRoom = chatRoomList.get(0);
         assertThat(chatRoom.getChatRoomTitle(), is("채팅방 생성"));
+        assertThat(chatRoom.getMapMarkerLocation(), is("locationTEst"));
     }
 }
