@@ -1,5 +1,6 @@
 package com.depro.mogakomap.entity;
 
+import com.depro.mogakomap.dto.ChatDto;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -9,6 +10,7 @@ import java.util.Date;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
+@Table(name = "CHAT")
 public class Chat {
 
     @Id
@@ -33,4 +35,13 @@ public class Chat {
         this.chatTimestamp = chatTimestamp;
         this.chatRoom = chatRoom;
     }
+
+//    public ChatDto toDto(){
+//        return ChatDto.builder()
+//                .chatId(chatId)
+//                .chatMessage(chatMessage)
+//                .chatTimestamp(chatTimestamp)
+//                .chatRoom(chatRoom)
+//                .build();
+//    }
 }

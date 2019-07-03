@@ -2,6 +2,7 @@ package com.depro.mogakomap.dto;
 
 import com.depro.mogakomap.entity.Chat;
 import com.depro.mogakomap.entity.ChatRoom;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -14,7 +14,7 @@ public class ChatService {
      * 채팅 메시지 저장
      * @param chat
      */
-    public void setChatMessage(Chat chat){
-        chatRepository.save(chat);
-    }
+//    public void setChatMessage(Chat chat){
+//        chatRepository.save(chat);
+//    }
 }
