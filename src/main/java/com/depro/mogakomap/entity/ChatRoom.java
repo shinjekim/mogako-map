@@ -1,6 +1,5 @@
 package com.depro.mogakomap.entity;
 
-import com.depro.mogakomap.dto.ChatRoomDto;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
