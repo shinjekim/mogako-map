@@ -1,6 +1,5 @@
 package com.depro.mogakomap.entity;
 
-import com.depro.mogakomap.dto.ChatDto;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
