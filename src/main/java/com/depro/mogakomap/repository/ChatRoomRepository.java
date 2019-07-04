@@ -1,6 +1,5 @@
 package com.depro.mogakomap.repository;
 
-import com.depro.mogakomap.dto.ChatRoomResponseDto;
 import com.depro.mogakomap.entity.ChatRoom;
 import org.springframework.data.jpa.repository.JpaRepository;
 
