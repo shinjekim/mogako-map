@@ -29,7 +29,7 @@ public class ChatController {
 
     @GetMapping("/")
     public String hello(){
-        return "프로젝트 메인화면!!!";
+        return "ChatController";
     }
 
     @MessageMapping("/chatmessage")
