@@ -34,6 +34,7 @@ public class ChatController {
 
     @MessageMapping("/chatmessage")
     public void setAndGetChatMessage(ChatRequestDto chatRequestDto){
+        System.out.println("로그: "+chatRequestDto);
         chatRepository.save(chatRequestDto.toEntity());
         Long chatRoomId = chatRequestDto.getChatRoom().getChatRoomId();
         //TODO: Optional에 엔터티 타입을 넣는게 맞는건지?
