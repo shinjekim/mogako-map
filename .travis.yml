@@ -30,5 +30,5 @@ deploy:
     acl: public_read
     wait-until-deployed: true
     on:
-      repo: ShinJeKim/mogako-map #Github 주소
+      repo: shinjekim/mogako-map #Github 주소
       branch: master
