@@ -60,3 +60,6 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/macos
+
+### Google OAuth 인증정보 제외
+/src/main/resources/google.yml
