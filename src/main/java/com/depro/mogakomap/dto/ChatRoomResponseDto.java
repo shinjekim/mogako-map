@@ -11,11 +11,11 @@ import lombok.Getter;
 public class ChatRoomResponseDto {
     private Long chatRoomId;
     private String chatRoomTitle;
-    private String mapMarkerLocation;
+    private String chatRoomLocation;
 
     public ChatRoomResponseDto(ChatRoom entity){
         chatRoomId = entity.getChatRoomId();
         chatRoomTitle = entity.getChatRoomTitle();
-        mapMarkerLocation = entity.getMapMarkerLocation();
+        chatRoomLocation = entity.getChatRoomLocation();
     }
 }

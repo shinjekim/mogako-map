@@ -1,6 +1,5 @@
 package com.depro.mogakomap.repository;
 
-import com.depro.mogakomap.dto.ChatRoomRequestDto;
 import com.depro.mogakomap.dto.ChatRoomResponseDto;
 import com.depro.mogakomap.entity.ChatRoom;
 import org.junit.After;
@@ -36,19 +35,17 @@ public class ChatRoomRepositoryTest {
         // given: 테스트 기반 환경을 구축하는 단계
         chatRoomRepository.save(ChatRoom.builder()
                             .chatRoomTitle("채팅방 생성")
-                            .mapMarkerLocation("locationTEst")
+                            .chatRoomLocation("locationTEst")
                             .build());
 
         // when: 테스트하고자 하는 행위 선언
         List<ChatRoom> chatRoomList = chatRoomRepository.findAll();
-        ChatRoomResponseDto chatRoomResponseDto = new ChatRoomResponseDto(chatRoomRepository.findByMapMarkerLocation("locationTEst"));
+        ChatRoomResponseDto chatRoomResponseDto = new ChatRoomResponseDto(chatRoomRepository.findByChatRoomLocation("locationTEst"));
 
         // then: 테스트 결과 검증
         ChatRoom chatRoom = chatRoomList.get(0);
         assertThat(chatRoom.getChatRoomTitle(), is("채팅방 생성"));
-        assertThat(chatRoom.getMapMarkerLocation(), is("locationTEst"));
+        assertThat(chatRoom.getChatRoomLocation(), is("locationTEst"));
         assertThat(chatRoomResponseDto.getChatRoomId(), is(1L));
     }
-
-
 }

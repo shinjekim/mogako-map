@@ -13,20 +13,20 @@ import lombok.*;
 public class ChatRoomRequestDto {
     private Long chatRoomId;
     private String chatRoomTitle;
-    private String mapMarkerLocation;
+    private String chatRoomLocation;
 
     @Builder
-    public ChatRoomRequestDto(Long chatRoomId, String chatRoomTitle, String mapMarkerLocation){
+    public ChatRoomRequestDto(Long chatRoomId, String chatRoomTitle, String chatRoomLocation){
         this.chatRoomId = chatRoomId;
         this.chatRoomTitle = chatRoomTitle;
-        this.mapMarkerLocation = mapMarkerLocation;
+        this.chatRoomLocation = chatRoomLocation;
     }
 
     public ChatRoom toEntity(){
         return ChatRoom.builder()
                 .chatRoomId(chatRoomId)
                 .chatRoomTitle(chatRoomTitle)
-                .mapMarkerLocation(mapMarkerLocation)
+                .chatRoomLocation(chatRoomLocation)
                 .build();
     }
 }

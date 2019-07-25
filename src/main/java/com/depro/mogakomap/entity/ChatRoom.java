@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-@Table(name = "CHATROOM")
+@Table(name = "CHATROOMS")
 public class ChatRoom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +20,14 @@ public class ChatRoom {
     @Column(name = "CHATROOM_TITLE", nullable = false)
     private String chatRoomTitle;
 
-    @Column(name = "MAP_MARKER_LOCATION", nullable = false)
-    private String mapMarkerLocation;
+    @Column(name = "CHATROOM_LOCATION", nullable = false)
+    private String chatRoomLocation;
 
     @Builder
-    public ChatRoom(Long chatRoomId, String chatRoomTitle, String mapMarkerLocation){
+    public ChatRoom(Long chatRoomId, String chatRoomTitle, String chatRoomLocation){
         this.chatRoomId = chatRoomId;
         this.chatRoomTitle = chatRoomTitle;
-        this.mapMarkerLocation = mapMarkerLocation;
+        this.chatRoomLocation = chatRoomLocation;
     }
 }
 
