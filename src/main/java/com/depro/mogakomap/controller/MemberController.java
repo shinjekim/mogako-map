@@ -2,6 +2,7 @@ package com.depro.mogakomap.controller;
 
 import com.depro.mogakomap.dto.MemberRequestDto;
 import com.depro.mogakomap.dto.MemberResponseDto;
+import com.depro.mogakomap.entity.Member;
 import com.depro.mogakomap.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +29,7 @@ public class MemberController {
 
     //TODO:update할 때 전체 dto를 set하는게 맞는가? 그렇게 되면 update, save의 코드가 모두 같아지는데 그게 맞나?
 
-    @PutMapping("/members/{userid}/update")
+    @PutMapping("/members/{userid}/username/update")
     public MemberResponseDto updateUsername(@RequestBody MemberRequestDto memberRequestDto){
         memberRepository.save(memberRequestDto.toEntity());
         MemberResponseDto memberResponseDto = new MemberResponseDto(memberRequestDto.toEntity());

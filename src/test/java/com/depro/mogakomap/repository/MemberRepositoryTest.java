@@ -47,4 +47,23 @@ public class MemberRepositoryTest {
         Member member = memberList.get(0);
         assertThat(member.getMemberEmail(), is("apple@gmail.com"));
     }
+
+    @Test
+    public void findByMemberId(){
+        // given: 테스트 기반 환경을 구축하는 단계
+        memberRepository.save(Member.builder()
+                .memberEmail("apple@gmail.com")
+                .memberUsername("apple")
+                .memberPhotoUrl("photourl")
+                .memberGeolocation("(32.234123, 43.234123)")
+                .memberSkill("Java")
+                .build());
+
+        // when: 테스트하고자 하는 행위 선언
+        Member member = memberRepository.findByMemberId(1L);
+
+        // then: 테스트 결과 검증
+        assertThat(member.getMemberEmail(), is("apple@gmail.com"));
+        assertThat(member.getMemberUsername(), is("apple"));
+    }
 }
