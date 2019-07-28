@@ -1,7 +1,5 @@
 package com.depro.mogakomap.repository;
 
-import com.depro.mogakomap.dto.ChatMessageResponseDto;
-import com.depro.mogakomap.dto.ChatRoomRequestDto;
 import com.depro.mogakomap.entity.ChatMessage;
 import com.depro.mogakomap.entity.ChatRoom;
 import org.junit.After;
@@ -51,7 +49,7 @@ public class ChatMessageRepositoryTest {
     }
 
     @Test
-    public void getChatMessageList(){
+    public void findByChatRoom(){
         // given
         ChatRoom chatRoom = ChatRoom.builder()
                 .chatRoomId(1L)
@@ -69,11 +67,39 @@ public class ChatMessageRepositoryTest {
                 .build());
 
         // when
-        List<ChatMessage> chatMessages = chatMessageRepository.findByChatRoom(chatRoom);
-        // List<ChatMessage> chatMessages = chatMessageRepository.findByChatRoomId(1L);
+        //List<ChatMessage> chatMessages = chatMessageRepository.findByChatRoom(chatRoom);
+        List<ChatMessage> chatMessages = chatMessageRepository.findAllByChatRoomId(chatRoom.getChatRoomId());
 
         // get
         assertThat(chatMessages.size(), is(2));
         assertThat(chatMessages.get(1).getChatMessageContent(), is("채팅 메시지222"));
+        System.out.println("content= "+chatMessages.get(0).getChatMessageContent());
+        System.out.println("content= "+chatMessages.get(1).getChatMessageContent());
     }
+
+//    @Test
+//    public void findAllByChatRoom(){
+//        // given
+//        ChatRoom chatRoom = ChatRoom.builder()
+//                .chatRoomId(1L)
+//                .chatRoomTitle("로케이션")
+//                .chatRoomLocation("되나요되나요")
+//                .build();
+//        chatRoomRepository.save(chatRoom);
+//        chatMessageRepository.save(ChatMessage.builder()
+//                .chatMessageContent("채팅 메시지")
+//                .chatRoom(chatRoom)
+//                .build());
+//        chatMessageRepository.save(ChatMessage.builder()
+//                .chatMessageContent("채팅 메시지222")
+//                .chatRoom(chatRoom)
+//                .build());
+//
+//        // when
+//        List<ChatMessage> chatMessages = chatMessageRepository.findAllByChatRoom(chatRoom);
+//
+//        // get
+//        assertThat(chatMessages.size(), is(2));
+//        assertThat(chatMessages.get(1).getChatMessageContent(), is("채팅 메시지222"));
+//    }
 }
