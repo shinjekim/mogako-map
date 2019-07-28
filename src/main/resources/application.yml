@@ -1,41 +1,41 @@
-#spring:
-#  profiles:
-#    active: local # 기본 환경 선택
-#
-## local 환경
-#---
-#spring:
-#  profiles: local
-#  datasource:
-#    data: classpath:data-h2.sql # 시작할때 실행시킬 script
-#    # FIXME: ApplicationTest.java 실행시 db관련 에러 발생하고 아래의 코드 추가하라고 나오지만 에러 안고쳐짐.
-#    url: "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
-#  jpa:
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: create-drop
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2-console # h2 db 웹 클라이언트 접속 url
-#  devtools:
-#    livereload:
-#      enabled: true # 정적파일들의 실시간 갱신
-#  #security:
-#  #  basic:
-#  #    enabled: false # security 기본 인증 옵션 제거
-#  logging:
-#    level:
-#      org.hibernate.type: trace  # JPA로 생성되는 쿼리의 파라미터 값 확인
-
-#local db
 spring:
+  profiles:
+    active: local # 기본 환경 선택
+
+# local 환경
+---
+spring:
+  profiles: local
+  datasource:
+    data: classpath:data-h2.sql # 시작할때 실행시킬 script
+    # FIXME: ApplicationTest.java 실행시 db관련 에러 발생하고 아래의 코드 추가하라고 나오지만 에러 안고쳐짐.
+    url: "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   h2:
     console:
       enabled: true
       path: /h2-console # h2 db 웹 클라이언트 접속 url
-  datasource:
-    data: classpath:data-h2.sql # 시작할때 실행시킬 script
+  devtools:
+    livereload:
+      enabled: true # 정적파일들의 실시간 갱신
+  #security:
+  #  basic:
+  #    enabled: false # security 기본 인증 옵션 제거
+  logging:
+    level:
+      org.hibernate.type: trace  # JPA로 생성되는 쿼리의 파라미터 값 확인
+
+#local db
+#spring:
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2-console # h2 db 웹 클라이언트 접속 url
+#  datasource:
+#    data: classpath:data-h2.sql # 시작할때 실행시킬 script
 #  datasource:
 #    url: jdbc:mariadb://localhost:3306/MOGAKOMAP
 #    username: root

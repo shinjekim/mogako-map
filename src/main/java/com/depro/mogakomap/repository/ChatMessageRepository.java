@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> {
-    List<ChatMessage> findByChatRoom(ChatRoom chatRoom);
+    // List<ChatMessage> findByChatRoom(ChatRoom chatRoom);
 
     // 테스트 완료된 쿼리
     @Query("select c from ChatMessage c where c.chatRoom.chatRoomId = :chatRoomId")
